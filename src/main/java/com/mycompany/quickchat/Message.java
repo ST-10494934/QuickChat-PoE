@@ -125,10 +125,19 @@ public class Message {
         return "Message ID: " + messageID + "\n"
                 + "Message Hash: " + messageHash + "\n"
                 + "Recipient: " + recipient + "\n"
-                + "Message: " + messageText; 
-                
+                + "Message: " + messageText;           
     }
-
+/**
+ * Returns the total number of messages sent 
+ * 
+ * @param sentCount running count of sent messages 
+ * @return total sent 
+ */
+public int returnTotalMessages(int sentCount){
+    return sentCount;
+}    
+    
+    
 
 
 
