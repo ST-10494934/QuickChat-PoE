@@ -34,7 +34,17 @@ public class Message {
         this.messageNumber = messageNumber;
         this.recipient = recipient;
         this.messageText = messageText;
-        this.messageID = generatemessageID();
+        this.messageID = generateMessageID();
         this.messageHash = createMessageHash();
+    }
+    /** 
+     * Generate a random 10-digit ID as a string 
+     * 
+     * @return 10-digit ID as a string 
+     */
+    private String generateMessageID(){
+        Random random = new Random();
+        long id = (long) (random.nextDouble()*9_000_000_000L)+1_000_000_000L;
+        return String.valueOf(id);
     }
 }
