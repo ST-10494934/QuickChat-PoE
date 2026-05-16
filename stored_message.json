@@ -5,5 +5,12 @@
     "recipient": "+27838968976",
     "messageText": "Hi Nick. How are you?",
     "messageHash": "29:1:HIYOU"
+  },
+  {
+    "messageID": "9915379030",
+    "messageNumber": 2,
+    "recipient": "+27718693002",
+    "messageText": "Hi Keegan, did you receive the payment?",
+    "messageHash": "99:2:HIPAYMENT"
   }
 ]
