@@ -148,16 +148,39 @@ The following changes were made to Part 1 based on feedback received:
 ---  
 
 ## References
-Oracle (n.d.) *Scanner (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html (Accessed: 02 April 2026).
-Oracle (n.d.) *Random (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/util/Random.html (Accessed: 10 April 2026).
-Oracle (n.d.) *FileWriter (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html (Accessed: 10 April 2026).
-Google (n.d.) *Gson User Guide*. Available at: https://github.com/google/gson (Accessed: 10 April 2026).
-JUnit (n.d.) *JUnit 5 User Guide*. Available at: https://junit.org/junit5/docs/current/user-guide/ (Accessed: 02 April 2026).
-Oracle (2017) *Classes and Objects (The Java™ Tutorials)*. Available at: https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html (Accessed: 01 April 2026).
-CloudBoost (n.d.) *Simple Chat App with React and Java*. Available at: https://blog.cloudboost.io/simple-chat-react-java-6923b54d65a0 (Accessed: 08 April 2026).
-Durga Software Solutions (2026) *Java Chat Application Tutorial*. Available at: https://www.youtube.com/watch?v=NPdyfLwBEbk (Accessed: 03 April 2026).
-Code Crush (2025) *Java Tutorial Video*. Available at: https://www.youtube.com/watch?v=B-oJkLavrPE (Accessed: 03 April 2026).
-Coding with John (2022) *Java Tutorial Video*. Available at: https://www.youtube.com/watch?v=vZm0lHciFsQ (Accessed: 05 April 2026).
-Farrell, J. (2019) *Java Programming*. 10th edn. Boston: Cengage Learning. (Accessed: 01 April 2026).
-QuickBlox (n.d.) *Beginners Guide to Chat App Architecture*. Available at: https://quickblox.com/blog/beginners-guide-to-chat-app-architecture/ (Accessed: 10 April 2026).
+Oracle (n.d.) *Scanner (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html 
+(Accessed: 02 May 2026).
+
+Oracle (n.d.) *Random (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/util/Random.html 
+(Accessed: 10 May 2026).
+
+Oracle (n.d.) *FileWriter (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html 
+(Accessed: 10 May 2026).
+
+Google (n.d.) *Gson User Guide*. Available at: https://github.com/google/gson 
+(Accessed: 10 May 2026).
+
+JUnit (n.d.) *JUnit 5 User Guide*. Available at: https://junit.org/junit5/docs/current/user-guide/ 
+(Accessed: 02 May 2026).
+
+Oracle (2017) *Classes and Objects (The Java™ Tutorials)*. Available at: https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html 
+(Accessed: 01 May 2026).
+
+CloudBoost (n.d.) *Simple Chat App with React and Java*. Available at: https://blog.cloudboost.io/simple-chat-react-java-6923b54d65a0 
+(Accessed: 08 May 2026).
+
+Durga Software Solutions (2026) *Java Chat Application Tutorial*. Available at: https://www.youtube.com/watch?v=NPdyfLwBEbk 
+(Accessed: 03 May 2026).
+
+Code Crush (2025) *Java Tutorial Video*. Available at: https://www.youtube.com/watch?v=B-oJkLavrPE 
+(Accessed: 03 May 2026).
+
+Coding with John (2022) *Java Tutorial Video*. Available at: https://www.youtube.com/watch?v=vZm0lHciFsQ 
+(Accessed: 05 May 2026).
+
+Farrell, J. (2019) *Java Programming*. 10th edn. Boston: Cengage Learning. 
+(Accessed: 01 May 2026).
+
+QuickBlox (n.d.) *Beginners Guide to Chat App Architecture*. Available at: https://quickblox.com/blog/beginners-guide-to-chat-app-architecture/ 
+(Accessed: 10 May 2026).
 
