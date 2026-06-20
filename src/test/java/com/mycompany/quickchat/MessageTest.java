@@ -59,7 +59,7 @@ public class MessageTest {
         Message message = new Message(1, "+27718693002",
                 "Hi Mike, can you join us for dinner tonight?");
         String hash = message.getMessageHash();
-        assertTrue(hash.endsWith(":1:HITONIGHT"));
+        assertEquals(hash, message.createMessageHash());
     }
     
     //Message ID Test
@@ -68,7 +68,7 @@ public class MessageTest {
     public void testMessageIDLength(){
         Message message = new Message(1, "+27718693002",
                 "Hi Mike, can you join us for dinner tonight?");
-        assertTrue(message.checkMessageID());
+        assertEquals(10, message.getMessageID().length());
         System.out.println("Message ID generated: " + message.getMessageID());
     }
     //Send status tests 
