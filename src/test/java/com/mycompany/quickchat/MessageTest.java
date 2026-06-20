@@ -59,7 +59,7 @@ public class MessageTest {
         Message message = new Message(1, "+27718693002",
                 "Hi Mike, can you join us for dinner tonight?");
         String hash = message.getMessageHash();
-        assertEquals(hash, message.createMessageHash());
+        assertEquals(true, hash.endsWith(":1:HITONIGHT"));
     }
     
     //Message ID Test
