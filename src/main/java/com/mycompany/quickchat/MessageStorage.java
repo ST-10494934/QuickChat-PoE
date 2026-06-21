@@ -6,6 +6,7 @@ package com.mycompany.quickchat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.util.ArrayList;
 
 
 /**
@@ -19,5 +20,15 @@ public class MessageStorage {
     // Arrays 
     private ArrayList<String> sentMessages = new ArrayList<>();
     private ArrayList<String> disregardedMessages = new ArrayList<>();
+    private ArrayList<String> storedMessages = new ArrayList<>(); 
+    private ArrayList<String> messageHashes = new ArrayList<>();
+    private ArrayList<String> messageIDs = new ArrayList<>();
+    
+    // Parallel arrays for recipients 
+    private ArrayList<String> sentRecipients = new ArrayList<>();
+    private ArrayList<String> storedRecipients = new ArrayList<>();
+    
+    // JSON file path 
+    private static final String JSON_FILE = "stored_message.json";
     
 }
