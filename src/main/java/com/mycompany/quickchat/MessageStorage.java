@@ -6,7 +6,11 @@ package com.mycompany.quickchat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -56,4 +60,41 @@ public class MessageStorage {
         disregardedMessages.add(messageText);
     }
     
+    /**
+     * Reads stored messages from the JSON file into the JSON file into the storedMessages array
+     * Reference: Gson library by Google - https://github.com/google/gson
+     */
+    public void loadStoredMessagesFromJSON(){
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader(JSON_FILE)){
+            Type listType = new TypeToken<List<Message.MessageData>>() {}.getType();
+            List<Message.MessageData> stored = gson.fromJson(reader, listType);
+            if (stored != null){
+            for (Message.MessageData data : stored){
+                storedMessages.add(data.messageText);
+                storedRecipients.add(data.recipient);
+                messageHashes.add(data.messageHash);
+                messageIDs.add(data.messageID);
+            }
+        }
+        }catch (IOException e) {
+            System.out.println("No stored messages found.");
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
