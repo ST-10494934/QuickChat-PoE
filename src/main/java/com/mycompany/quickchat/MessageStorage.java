@@ -82,6 +82,24 @@ public class MessageStorage {
         }
     }
     
+    /**
+     * Display the recipient of all stored messages 
+     * 
+     * @return formatted string of all stored message recipients and messages 
+     */
+    public String displayStoredMessages(){
+        if (storedMessages.isEmpty()){
+           return "No stored messages found."; 
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n===STORED MESSAGES ===\n");
+        for (int i = 0; i < storedMessages.size(); i++) {
+            sb.append("Recipient: ").append(storedRecipients.get(i)).append("\n");
+            sb.append("Message: ").append(storedMessages.get(i)).append("\n");
+            sb.append("---\n");
+        }
+        return sb.toString();
+    }
 
 
 
