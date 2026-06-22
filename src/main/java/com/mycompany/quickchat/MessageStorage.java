@@ -122,7 +122,22 @@ public class MessageStorage {
         }
         return longest.isEmpty() ? "No message found." : longest;
     }
-
+/**
+ * Searches for a message by ID and returns the recipient and message
+ * 
+ * @param messageID the message ID to search for 
+ * @return the recipient and message to text or error message 
+ */
+public String searchByMessageID(String messageID){
+    for (int i = 0; i < messageIDs.size(); i++) {
+        if (messageIDs.get(i).equals(messageID)) { 
+            return "Recipient: " + getRecipientByIndex(i)
+                    + "\nMessage: " + getMessageByIndex(i);
+        }
+    }
+    return "Message ID not found";
+}    
+    
 
 
 
