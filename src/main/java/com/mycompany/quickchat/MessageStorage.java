@@ -100,6 +100,28 @@ public class MessageStorage {
         }
         return sb.toString();
     }
+    
+    /**
+     * Finds and returns the longest message across all arrays
+     * 
+     * @return the longest message test 
+     */
+    public String findLongestMessage() {
+        String longest = ""; 
+        //Check sent messages
+        for (String msg : sentMessages) {
+            if (msg.length() > longest.length()) {
+                longest = msg;
+            }
+        }
+        //Check stored messages
+        for (String msg : storedMessages){
+            if (msg.length() > longest.length()){
+                longest = msg;
+            }
+        }
+        return longest.isEmpty() ? "No message found." : longest;
+    }
 
 
 
