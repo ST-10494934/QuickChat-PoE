@@ -191,6 +191,36 @@ public String deleteMessageByHash(String messageHash) {
     return "Message hash not found.";
 }
 
+/**
+ * Display a full report of all sent messages 
+ * 
+ * @return formatted report string 
+ */
+public String displayReport() {
+    if(sentMessages.isEmpty() && storedMessages.isEmpty()){
+        return "No message to display";
+    }
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n=== MESSAGE REPORT ===\n");
+    
+    //Sent messages
+    sb.append("\n--- Sent Messages ---\n");
+    for (int i = 0; i < sentMessages.size(); i++) {
+        sb.append("Message Hash: ").append(messageHashes.get(i)).append("\n");
+        sb.append("Recipient: ").append(sentRecipients.get(i)).append("\n");
+        sb.append("Message: ").append(sentMessages.get(i)).append("\n");
+        sb.append("---\n");
+    }
+    
+    //Stored messages 
+    sb.append("\n---Stored Messages ---\n");
+    for (int i = 0; i < storedMessages.size(); i++) {
+        sb.append("Recipient: ").append(storedRecipients.get(i)).append("\n");
+        sb.append("Message: ").append(storedMessages.get(i)).append("\n");
+        sb.append("---\n");
+    }
+    return sb.toString();
+}
 
 
 
