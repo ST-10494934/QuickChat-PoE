@@ -161,6 +161,35 @@ public String searchByRecipient(String recipient) {
     return sb.length() == 0 ? "No messages found for this recipient." : sb.toString();
 }    
 
+/**
+ * Deletes a message using the message hash 
+ * 
+ * @param messageHash the hash of the message to delete 
+ * @return confirmation or error message 
+ */
+public String deleteMessageByHash(String messageHash) {
+    for (int i = 0; i < messageHashes.size(); i++) {
+        if (messageHashes.get(i).equals(messageHash)) {
+            String deletedMessage =getMessageByIndex(i);
+            //Remove from all arrays 
+            messageHashes.remove(i);
+            messageIDs.remove(i);
+            // Try to remove from sent or stored 
+            if (i < sentMessages.size()) {
+                sentMessages.remove(i);
+                sentRecipients.remove(i);
+            } else {
+                int storedIndex = i - sentMessages.size();
+                if (storedIndex < storedMessages.size()) {
+                    storedMessages.remove(storedIndex);
+                    storedRecipients.remove(storedIndex);
+                }
+            }
+            return "Message: \"" + deleteMessage + "\" successfully deleted.";
+        }
+    }
+    return "Message hash not found.";
+}
 
 
 
