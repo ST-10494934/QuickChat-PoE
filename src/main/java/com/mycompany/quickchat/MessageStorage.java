@@ -77,7 +77,7 @@ public class MessageStorage {
                 messageIDs.add(data.messageID);
             }
         }
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("No stored messages found.");
         }
     }
@@ -137,7 +137,29 @@ public String searchByMessageID(String messageID){
     }
     return "Message ID not found";
 }    
-    
+
+/**
+ * Searches for all the messages sent or stored for a particular recipient 
+ * 
+ * @param recipient the recipient cell number to search for 
+ * @return all messages for the recipient 
+ */
+public String searchByRecipient(String recipient) {
+    StringBuilder sb = new StringBuilder();
+    //Search sent message 
+    for (int i = 0; i < sentRecipients.size(); i++){
+        if (sentRecipients.get(i).equals(recipient)) {
+            sb.append("Message: ").append(sentMessages.get(i)).append("\n");
+        }
+    }
+    // Search stored messages
+    for (int i = 0; i < storedRecipients.size(); i++) {
+        if (storedRecipients.get(i).equals(recipient)) {
+            sb.append("Message: ").append(storedMessages.get(i)).append("\n");
+        }
+    }
+    return sb.length() == 0 ? "No messages found for this recipient." : sb.toString();
+}    
 
 
 
