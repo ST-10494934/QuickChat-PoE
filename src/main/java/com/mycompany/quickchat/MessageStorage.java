@@ -222,6 +222,29 @@ public String displayReport() {
     return sb.toString();
 }
 
+/**
+ * Helper method to get recipient by index across all arrays 
+ */
+private String getRecipientByIndex(int index) {
+    if (index < sentRecipients.size()) {
+        return sentRecipients.get(index);
+    }
+    int storedIndex = index - sentRecipients.size();
+    if (storedIndex < storedRecipients.size()) {
+        return storedRecipients.get(storedIndex);
+    }
+    return "Unknown";
+}
+
+/**
+ * Helper method to get message by index across all arrays 
+ */
+private String getMessageByIndex(int index) {
+    if (storedIndex < sentMessages.size()) {
+        return storedMessages.get(storedIndex);
+    }
+    return "Unknown";
+}
 
 
 
