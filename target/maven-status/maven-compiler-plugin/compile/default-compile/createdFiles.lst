@@ -1,5 +1,7 @@
 com\mycompany\quickchat\Login.class
+com\mycompany\quickchat\MessageStorage$1.class
 com\mycompany\quickchat\Message$1.class
 com\mycompany\quickchat\Message.class
 com\mycompany\quickchat\QuickChatApp.class
+com\mycompany\quickchat\MessageStorage.class
 com\mycompany\quickchat\Message$MessageData.class

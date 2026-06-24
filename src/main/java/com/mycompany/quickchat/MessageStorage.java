@@ -185,7 +185,7 @@ public String deleteMessageByHash(String messageHash) {
                     storedRecipients.remove(storedIndex);
                 }
             }
-            return "Message: \"" + deleteMessage + "\" successfully deleted.";
+            return "Message: \"" + deletedMessage + "\" successfully deleted.";
         }
     }
     return "Message hash not found.";
@@ -240,7 +240,11 @@ private String getRecipientByIndex(int index) {
  * Helper method to get message by index across all arrays 
  */
 private String getMessageByIndex(int index) {
-    if (storedIndex < sentMessages.size()) {
+    if (index < sentMessages.size()) {
+        return sentMessages.get(index);
+    }
+    int storedIndex = index - sentMessages.size();
+    if (storedIndex < storedMessages.size()) {
         return storedMessages.get(storedIndex);
     }
     return "Unknown";
@@ -253,7 +257,7 @@ public ArrayList<String> getStoredMessages() { return storedMessages; }
 public ArrayList<String> getMessageHashes() { return messageHashes; } 
 public ArrayList<String> getMessageIDs() { return messageIDs; }
 public ArrayList<String> getSentRecipients() { return sentRecipients; }
-public ArrayList<String> getStoredRecipients() { returnstoredRecipients; }
+public ArrayList<String> getStoredRecipients() { return storedRecipients; }
 
 }
 
