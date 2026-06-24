@@ -90,7 +90,7 @@ public class QuickChatApp {
                 for (int i = 0; i < maxMessages; i++) {
                     int messageNumber = i + 1;
                     System.out.println("\n--- Message " + messageNumber
-                    + "of" + maxMessages + " ---");
+                    + " of " + maxMessages + " ---");
                     
                     // Recipient validation loop
                     String recipient;
@@ -133,10 +133,10 @@ public class QuickChatApp {
                         storage.addSentMessage(message.getMessageID(),
                                 message.getMessageHash(),
                                 message.getRecipient(),
-                                message.getMessageText()),
+                                message.getMessageText());
                         System.out.println("\n--- Message Details --- ");
                         System.out.println(message.printMessages());
-                    } else if (status.equals("Press 0 to delete the message")){
+                    } else if (status.equals("Press 0 to delete the message.")){
                         storage.addDisregardedMessage(message.getMessageText());
                     }
                     // Stored messages are handled inside Message.storedMessage()
