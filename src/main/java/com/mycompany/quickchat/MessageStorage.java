@@ -246,14 +246,14 @@ private String getMessageByIndex(int index) {
     return "Unknown";
 }
 
-
-
-
-
-
-
-
-
+// Getters 
+public ArrayList<String> getSentMessages() { return sentMessages; }
+public ArrayList<String> getDisregardedMessages() { return disregardedMessages; }
+public ArrayList<String> getStoredMessages() { return storedMessages; }
+public ArrayList<String> getMessageHashes() { return messageHashes; } 
+public ArrayList<String> getMessageIDs() { return messageIDs; }
+public ArrayList<String> getSentRecipients() { return sentRecipients; }
+public ArrayList<String> getStoredRecipients() { returnstoredRecipients; }
 
 }
 
