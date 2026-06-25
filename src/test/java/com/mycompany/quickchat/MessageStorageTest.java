@@ -53,10 +53,30 @@ public class MessageStorageTest {
     }
     
     // Longest message test 
+    
     public void testFindLongestMessage() {
         // Test Data: Message 2 is the longest 
         assertEquals ("Where are you? You are late! I have asked you to be on time.",
                 storage.findLongestMessage());
+    }
+    
+    // Search by message ID test
+    
+    public void testSearchByMessageID() {
+        // Test Data: message 4 - search by recipient number
+        String result = storage.searchByMessageID("3456789012");
+        assertEquals(true, result.contains("It is dinner time !"));
+    }
+    
+    // Search by recipient test 
+    
+    @Test
+    public void testSearchByRecipient() {
+        // Test Data: +27838884567 has Message 2 and Message 5
+        String result = storage.searchByRecipient("+27838884567");
+        assertEquals(true, result.contains(
+                "Where are you? You are late! I have asked you to be on time."));
+        assertEquals(true, result.contains("Ok, I am leaving without you."));
     }
 
 
