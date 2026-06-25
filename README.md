@@ -184,3 +184,86 @@ Farrell, J. (2019) *Java Programming*. 10th edn. Boston: Cengage Learning.
 QuickBlox (n.d.) *Beginners Guide to Chat App Architecture*. Available at: https://quickblox.com/blog/beginners-guide-to-chat-app-architecture/ 
 (Accessed: 10 May 2026).
 
+# Part 3 - Store Data and Display Message Report (Final PoE)
+ 
+## Overview
+Part 3 completes the QuickChat application by adding full data storage, array management
+and a reporting feature. All three parts now work together as a complete, tested application.
+ 
+## Features Implemented
+ 
+| Feature | Description |
+|---------|-------------|
+| Sent Messages Array | Stores the text and recipient of every sent message |
+| Disregarded Messages Array | Stores the text of every disregarded message |
+| Stored Messages Array | Populated from the JSON file saved in Part 2 |
+| Message Hash Array | Stores the hash of every message |
+| Message ID Array | Stores the ID of every message |
+| Stored Messages Menu | Fourth menu option added for stored message operations |
+| Display Stored Messages | Shows the sender and recipient of all stored messages |
+| Longest Message | Searches all arrays and returns the longest message |
+| Search by Message ID | Returns the recipient and message for a given ID |
+| Search by Recipient | Returns all messages sent or stored for a given cell number |
+| Delete by Hash | Removes a message from its array using the message hash |
+| Display Report | Full report of all sent messages including hash, recipient and message |
+| Read JSON into Array | Stored messages loaded from JSON file on login using Gson |
+ 
+## Project Structure
+- `src/main/java/com/mycompany/quickchat/Login.java` - Registration and login logic
+- `src/main/java/com/mycompany/quickchat/Message.java` - Message creation, validation, hashing and JSON storage
+- `src/main/java/com/mycompany/quickchat/MessageStorage.java` - All arrays and data operations
+- `src/main/java/com/mycompany/quickchat/QuickChatApp.java` - Main application interface and full menu
+- `src/test/java/com/mycompany/quickchat/LoginTest.java` - Unit tests for Login class
+- `src/test/java/com/mycompany/quickchat/MessageTest.java` - Unit tests for Message class
+- `src/test/java/com/mycompany/quickchat/MessageStorageTest.java` - Unit tests for MessageStorage class
+- `stored_messages.json` - JSON file for stored messages
+- `pom.xml` - Maven dependencies
+- `.github/workflows/maven.yml` - GitHub Actions CI pipeline
+## Part 3 - Unit Tests
+All unit tests are passing and cover:
+- Sent messages array correctly populated with test data (assertEquals)
+- Longest message correctly identified across all arrays (assertEquals)
+- Search by message ID returns correct recipient and message (assertEquals)
+- Search by recipient returns all matching messages (assertEquals)
+- Delete by message hash returns correct confirmation message (assertEquals)
+- Display report contains all required fields (assertEquals)
+## GitHub Actions (CI)
+The project uses GitHub Actions to automatically run all unit tests on every push and pull
+request to the main branch. The workflow sets up JDK 21, builds the project with Maven
+and runs all three test classes — LoginTest, MessageTest and MessageStorageTest.
+ 
+## Changes from Part 2
+- **`MessageStorage.java`** — New class added to manage all five arrays and all
+  data operations including search, delete, longest message and report display.
+- **`QuickChatApp.java`** — Updated to include a fourth menu option for stored
+  messages with a sub-menu for all six storage operations.
+- **`pom.xml`** — Added maven-surefire-plugin to ensure JUnit 5 tests run
+  correctly in the GitHub Actions CI pipeline.
+- **`MessageStorageTest.java`** — New test class added with six unit tests
+  using the exact test data specified in the assignment rubric.
+## References
+Oracle (n.d.) *ArrayList (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+(Accessed: 18 June 2026).
+ 
+Oracle (n.d.) *FileReader (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/FileReader.html
+(Accessed: 18 June 2026).
+ 
+Google (n.d.) *Gson User Guide*. Available at: https://github.com/google/gson
+(Accessed: 18 June 2026).
+ 
+JUnit (n.d.) *JUnit 5 User Guide*. Available at: https://junit.org/junit5/docs/current/user-guide/
+(Accessed: 19 June 2026).
+ 
+Oracle (n.d.) *Scanner (Java Platform SE 8)*. Available at: https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html
+(Accessed: 18 June 2026).
+ 
+Farrell, J. (2019) *Java Programming*. 10th edn. Boston: Cengage Learning.
+(Accessed: 18 June 2026).
+ 
+QuickBlox (n.d.) *Beginners Guide to Chat App Architecture*. Available at: https://quickblox.com/blog/beginners-guide-to-chat-app-architecture/
+(Accessed: 18 June 2026).
+ 
+GitHub (n.d.) *GitHub Actions Documentation*. Available at: https://docs.github.com/en/actions
+(Accessed: 25 June 2026).
+ 
+
