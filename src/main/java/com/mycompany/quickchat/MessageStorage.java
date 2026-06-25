@@ -27,7 +27,7 @@ public class MessageStorage {
     private ArrayList<String> storedMessages = new ArrayList<>(); 
     private ArrayList<String> messageHashes = new ArrayList<>();
     private ArrayList<String> messageIDs = new ArrayList<>();
-    
+    private ArrayList<String> messageFlags = new ArrayList<>();
     // Parallel arrays for recipients 
     private ArrayList<String> sentRecipients = new ArrayList<>();
     private ArrayList<String> storedRecipients = new ArrayList<>();
@@ -49,6 +49,7 @@ public class MessageStorage {
         sentRecipients.add(recipient);
         messageHashes.add(messageHash);
         messageIDs.add(messageID);
+        messageFlags.add("sent");
     }
     
     /**
@@ -58,6 +59,24 @@ public class MessageStorage {
      */
     public void addDisregardedMessage(String messageText){
         disregardedMessages.add(messageText);
+    }
+    
+    /**
+     * Adds a stored message directly to the stored arrays
+     * Used for unit testing with assignment test data
+     *
+     * @param messageID the message ID
+     * @param messageHash the message hash
+     * @param recipient the recipient cell number
+     * @param messageText the message text
+     */
+    public void addStoredMessage(String messageID, String messageHash,
+            String recipient, String messageText) {
+        storedMessages.add(messageText);
+        storedRecipients.add(recipient);
+        messageHashes.add(messageHash);
+        messageIDs.add(messageID);
+        messageFlags.add("stored");
     }
     
     /**
@@ -75,6 +94,7 @@ public class MessageStorage {
                 storedRecipients.add(data.recipient);
                 messageHashes.add(data.messageHash);
                 messageIDs.add(data.messageID);
+                messageFlags.add("stored");
             }
         }
         } catch (IOException e) {
@@ -171,25 +191,43 @@ public String deleteMessageByHash(String messageHash) {
     for (int i = 0; i < messageHashes.size(); i++) {
         if (messageHashes.get(i).equals(messageHash)) {
             String deletedMessage =getMessageByIndex(i);
-            //Remove from all arrays 
+            String flag = messageFlags.get(i);
+            
+            //Remove from flag, hash, and ID arrays
+            messageFlags.remove(i);
             messageHashes.remove(i);
             messageIDs.remove(i);
-            // Try to remove from sent or stored 
-            if (i < sentMessages.size()) {
-                sentMessages.remove(i);
-                sentRecipients.remove(i);
-            } else {
-                int storedIndex = i - sentMessages.size();
-                if (storedIndex < storedMessages.size()) {
-                    storedMessages.remove(storedIndex);
-                    storedRecipients.remove(storedIndex);
+            // Remove from correct message and recipient array
+                if (flag.equals("sent")) {
+                    int sentIndex = 0;
+                    for (int j = 0; j < i; j++) {
+                        if (j < messageFlags.size()
+                                && messageFlags.get(j).equals("sent")) {
+                            sentIndex++;
+                        }
+                    }
+                    if (sentIndex < sentMessages.size()) {
+                        sentMessages.remove(sentIndex);
+                        sentRecipients.remove(sentIndex);
+                    }
+                } else {
+                    int storedIndex = 0;
+                    for (int j = 0; j < i; j++) {
+                        if (j < messageFlags.size()
+                                && messageFlags.get(j).equals("stored")) {
+                            storedIndex++;
+                        }
+                    }
+                    if (storedIndex < storedMessages.size()) {
+                        storedMessages.remove(storedIndex);
+                        storedRecipients.remove(storedIndex);
+                    }
                 }
+                return "Message: \"" + deletedMessage + "\" successfully deleted.";
             }
-            return "Message: \"" + deletedMessage + "\" successfully deleted.";
         }
+        return "Message hash not found.";
     }
-    return "Message hash not found.";
-}
 
 /**
  * Display a full report of all sent messages 
@@ -223,47 +261,44 @@ public String displayReport() {
 }
 
 /**
- * Helper method to get recipient by index across all arrays 
+     * Helper method to get message by index using flags
+     */
+    private String getMessageByIndex(int index) {
+        String flag = messageFlags.get(index);
+        if (flag.equals("sent")) {
+            int sentIndex = 0;
+            for (int i = 0; i < index; i++) {
+                if (messageFlags.get(i).equals("sent")) sentIndex++;
+            }
+            return sentMessages.get(sentIndex);
+        } else {
+            int storedIndex = 0;
+            for (int i = 0; i < index; i++) {
+                if (messageFlags.get(i).equals("stored")) storedIndex++;
+            }
+            return storedMessages.get(storedIndex);
+        }
+    }
+
+/**
+ * Helper method to get message by index using flags
  */
 private String getRecipientByIndex(int index) {
-    if (index < sentRecipients.size()) {
-        return sentRecipients.get(index);
+        String flag = messageFlags.get(index);
+        if (flag.equals("sent")) {
+            int sentIndex = 0;
+            for (int i = 0; i < index; i++) {
+                if (messageFlags.get(i).equals("sent")) sentIndex++;
+            }
+            return sentRecipients.get(sentIndex);
+        } else {
+            int storedIndex = 0;
+            for (int i = 0; i < index; i++) {
+                if (messageFlags.get(i).equals("stored")) storedIndex++;
+            }
+            return storedRecipients.get(storedIndex);
+        }
     }
-    int storedIndex = index - sentRecipients.size();
-    if (storedIndex < storedRecipients.size()) {
-        return storedRecipients.get(storedIndex);
-    }
-    return "Unknown";
-}
-
-/**
- * Helper method to get message by index across all arrays 
- */
-private String getMessageByIndex(int index) {
-    if (index < sentMessages.size()) {
-        return sentMessages.get(index);
-    }
-    int storedIndex = index - sentMessages.size();
-    if (storedIndex < storedMessages.size()) {
-        return storedMessages.get(storedIndex);
-    }
-    return "Unknown";
-}
-
-/**
- * Adds a stored message directly to the stored arrays 
- * 
- * @param messageID the message ID
- * @param messageHash the message hash 
- * @param recipient the recipient cell number 
- * @param messageText the message text
- */
-public void addStoredMessage(String messageID, String messageHash, String recipient, String messageText){
-    storedMessages.add(messageText);
-    storedRecipients.add(recipient);
-    messageHashes.add(messageHash);
-    messageIDs.add(messageID);
-}
 
 // Getters 
 public ArrayList<String> getSentMessages() { return sentMessages; }

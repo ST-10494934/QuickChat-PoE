@@ -26,7 +26,7 @@ public class MessageStorageTest {
                 "+27834557896", "Did you get the cake?");
         
         //Test Data Message 2 - Stored
-        storage.addStoredMessage ("2345678901", "23:2:WHERETIME"
+        storage.addStoredMessage("2345678901", "23:2:WHERETIME",
                 "+27838884567",
                 "Where are you? You are late! I have asked you to be on time.");
         
@@ -54,6 +54,7 @@ public class MessageStorageTest {
     
     // Longest message test 
     
+    @Test
     public void testFindLongestMessage() {
         // Test Data: Message 2 is the longest 
         assertEquals ("Where are you? You are late! I have asked you to be on time.",
@@ -62,6 +63,7 @@ public class MessageStorageTest {
     
     // Search by message ID test
     
+    @Test
     public void testSearchByMessageID() {
         // Test Data: message 4 - search by recipient number
         String result = storage.searchByMessageID("3456789012");
@@ -85,8 +87,8 @@ public class MessageStorageTest {
     public void testDeleteMessageByHash() {
         // Test Data: Delete Message 2 using its hash
         String result = storage.deleteMessageByHash("23:2:WHERETIME");
-        assertEquals("Message: \"Where are you? You are late!"
-                + "I have asked you to be on time. \" successfully deleted.",
+        assertEquals("Message: \"Where are you? You are late! "
+                + "I have asked you to be on time.\" successfully deleted.",
                 result);
     }
     
