@@ -89,15 +89,17 @@ public class MessageStorageTest {
                 + "I have asked you to be on time. \" successfully deleted.",
                 result);
     }
-
-
-
-
-
-
-
-
-
-
-
+    
+    // Display report test 
+    
+    @Test
+    public void testDisplayReport() {
+        String report = storage.displayReport();
+        // Report should contain sent message details
+        assertEquals(true, report.contains("Did you get the cake?"));
+        assertEquals(true, report.contains("It is dinner time !"));
+        assertEquals(true, report.contains("Message Hash"));
+        assertEquals(true, report.contains("Recipient"));
+        assertEquals(true, report.contains("Message"));
+    }
 }
