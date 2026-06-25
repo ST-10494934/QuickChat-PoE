@@ -4,6 +4,7 @@
  */
 package com.mycompany.quickchat;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,6 +42,15 @@ public class MessageStorageTest {
                 "+27838884567", "Ok, I am leaving without you.");
     }
     
+    // Sent Messages array test 
+    
+    @Test 
+    public void testSentMessagesArrayPopulated(){
+        // Test Data: Message 1 and Message 4 are sent 
+        String sentMessages = storage.getSentMessages().toString();
+        assertEquals(true, sentMessages.contains("Did you get the cake?"));
+        assertEquals(true, sentMessages.contains("It is dinner time !"));
+    }
 
 
 
