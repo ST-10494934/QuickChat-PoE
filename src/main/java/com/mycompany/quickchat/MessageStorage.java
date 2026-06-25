@@ -250,6 +250,21 @@ private String getMessageByIndex(int index) {
     return "Unknown";
 }
 
+/**
+ * Adds a stored message directly to the stored arrays 
+ * 
+ * @param messageID the message ID
+ * @param messageHash the message hash 
+ * @param recipient the recipient cell number 
+ * @param messageText the message text
+ */
+public void addStoredMessage(String messageID, String messageHash, String recipient, String messageText){
+    storedMessages.add(messageText);
+    storedRecipients.add(recipient);
+    messageHashes.add(messageHash);
+    messageIDs.add(messageID);
+}
+
 // Getters 
 public ArrayList<String> getSentMessages() { return sentMessages; }
 public ArrayList<String> getDisregardedMessages() { return disregardedMessages; }
