@@ -51,6 +51,13 @@ public class MessageStorageTest {
         assertEquals(true, sentMessages.contains("Did you get the cake?"));
         assertEquals(true, sentMessages.contains("It is dinner time !"));
     }
+    
+    // Longest message test 
+    public void testFindLongestMessage() {
+        // Test Data: Message 2 is the longest 
+        assertEquals ("Where are you? You are late! I have asked you to be on time.",
+                storage.findLongestMessage());
+    }
 
 
 
