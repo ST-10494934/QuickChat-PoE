@@ -78,6 +78,17 @@ public class MessageStorageTest {
                 "Where are you? You are late! I have asked you to be on time."));
         assertEquals(true, result.contains("Ok, I am leaving without you."));
     }
+    
+    // Delete by hash test 
+    
+    @Test 
+    public void testDeleteMessageByHash() {
+        // Test Data: Delete Message 2 using its hash
+        String result = storage.deleteMessageByHash("23:2:WHERETIME");
+        assertEquals("Message: \"Where are you? You are late!"
+                + "I have asked you to be on time. \" successfully deleted.",
+                result);
+    }
 
 
 
